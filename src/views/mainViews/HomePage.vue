@@ -1,7 +1,7 @@
 <template>
   <div style="flex: auto">
     <el-row>
-      <el-col :span="16">
+      <el-col :span="18">
         <el-tabs v-model="activeTab">
           <el-tab-pane label="推荐课程" name="recommend">
             <CourseCard :courseType="activeTab" :key="activeTab"></CourseCard>
@@ -14,25 +14,26 @@
           </el-tab-pane>
         </el-tabs>
       </el-col>
-      <el-col :span="8">
+      <el-col :span="6">
         <el-card class="box-card">
           <div slot="header" class="clearfix">
             <i class="el-icon-s-data"></i>
             <span>点击量排行</span>
           </div>
-          <div v-for="(course, index) in coursesRanking" :key="index" style="font-size: 16px">
+          <div v-for="(course, index) in coursesRanking" :key="index" style="font-size: 12px">
             <el-row>
-              <el-col :span="4"><div style="width: 20px;height: 20px;background-color: #B3C0D1">{{index+1}}</div></el-col>
-              <el-col :span="16"><a href="/" style="text-decoration:none;color: #333333">{{ course.courseName}}</a></el-col>
-              <el-col :span="4">{{course.activity}}</el-col>
+              <el-col :span="4">
+                <div style="width: 20px;height: 20px;background-color: #B3C0D1">{{ index + 1 }}</div>
+              </el-col>
+              <el-col :span="16"><a href="/" style="text-decoration:none;color: #333333">{{ course.courseName }}</a>
+              </el-col>
+              <el-col :span="4">{{ course.activity }}</el-col>
             </el-row>
-            ----------------------------------------
+            ----------------------------------------------
           </div>
         </el-card>
       </el-col>
     </el-row>
-
-
   </div>
 </template>
 
@@ -70,9 +71,10 @@ export default {
 
 <style scoped>
 .box-card {
-  margin-left: 60px;
-  margin-top: 60px;
-  width: 320px;
+  margin-left: 10px;
+  margin-top: 52px;
+  height: 464px;
+  width: 280px;
   padding-left: 1px;
 }
 </style>

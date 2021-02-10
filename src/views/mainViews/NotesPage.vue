@@ -9,14 +9,11 @@
     <div>
       <el-table
           :data="notes"
-          style="width: 100%"
-          @sort-change="changeTableSort">
+          style="width: 100%">
         >
         <el-table-column
-            label="创建时间"
-            prop="createTime"
-            sortable="custom"
-            width="500">
+            label="修改时间"
+            width="450">
           <template slot-scope="scope">
             <i class="el-icon-time"></i>
             <span style="margin-left: 10px">{{ scope.row.createTime }}</span>
@@ -24,7 +21,7 @@
         </el-table-column>
         <el-table-column
             label="标题"
-            width="590">
+            width="480">
           <template slot-scope="scope">
             <div slot="reference" class="name-wrapper">
               <el-tag size="medium">{{ scope.row.title }}</el-tag>
@@ -37,8 +34,12 @@
                        @click="handleBrowse(scope.$index, scope.row)"></el-button>
             <el-button type="primary" icon="el-icon-edit" circle
                        @click="handleEdit(scope.$index, scope.row)"></el-button>
-            <el-button type="danger" icon="el-icon-delete" circle
-                       @click="handleDelete(scope.$index, scope.row)"></el-button>
+            <el-popconfirm
+                title="确定删除这篇笔记吗？"
+                @confirm="handleDelete(scope.$index, scope.row)"
+            >
+              <el-button type="danger" icon="el-icon-delete" slot="reference" circle style="margin: 10px"></el-button>
+            </el-popconfirm>
           </template>
         </el-table-column>
       </el-table>
@@ -63,7 +64,7 @@ export default {
     return {
       total: 0,
       currentPage: 1,
-      size: 7,
+      size: 5,
       notes: []
     }
   },
@@ -75,11 +76,26 @@ export default {
       this.$router.push('/center/editNote/' + row.id)
     },
     handleDelete(index, row) {
-      console.log(index, row);
+      this.$http.delete('/delNote/' + row.id
+      ).then(res => {
+        if (res.data.state === 1) {
+          this.$message({
+            showClose: true,
+            message: res.data.message,
+            type: 'error'
+          });
+        } else if (res.data.state === 0) {
+          this.getNotes(this.currentPage, this.size)
+          this.$message({
+            showClose: true,
+            message: res.data.message,
+            type: 'success'
+          })
+        }
+      })
     },
     getNotes(currentPage, size) {
-      this.$http('/getNotes' + '?no=' + this.$store.state.no + '&currentPage=' + currentPage + '&size=' + size
-          + '&prop=createTime&order=descending').then((res) => {
+      this.$http('/getNotes' + '?no=' + this.$store.state.no + '&currentPage=' + currentPage + '&size=' + size).then((res) => {
             this.total = res.data.data.total
             this.notes = res.data.data.list
           }
@@ -88,14 +104,6 @@ export default {
     toAddNote() {
       this.$router.push('/center/addNote')
     },
-    changeTableSort(column) {
-      this.$http('/getNotes' + '?no=' + this.$store.state.no + '&currentPage=' + this.currentPage + '&size=' + this.size
-          + '&prop=' + column.prop + '&order=' + column.order).then((res) => {
-            this.total = res.data.data.total
-            this.notes = res.data.data.list
-          }
-      )
-    }
   },
   created() {
     this.getNotes(this.currentPage, this.size);

@@ -27,7 +27,7 @@ export default {
   name: "TopBar",
   data() {
     return {
-      squareUrl: 'https://cn.vuejs.org/images/logo.png',
+      squareUrl: 'https://www.runoob.com/wp-content/uploads/2017/01/vue.png',
     };
   },
   methods: {

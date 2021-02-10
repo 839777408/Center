@@ -5,7 +5,7 @@
         <el-input v-model="ruleForm.title"></el-input>
       </el-form-item>
       <el-form-item label="内容" prop="content">
-        <mavon-editor v-model="ruleForm.content" style="height: 470px"></mavon-editor>
+        <mavon-editor v-model="ruleForm.content" style="height: 500px"></mavon-editor>
       </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="submitForm('ruleForm')">立即修改</el-button>
@@ -21,7 +21,7 @@ export default {
   data() {
     return {
       ruleForm: {
-        id: this.$route.params.id,
+        id: this.$route.params.noteId,
         title: '',
         content: ''
       },
@@ -40,14 +40,14 @@ export default {
     submitForm(formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          this.$http.put('/editBlog', this.ruleForm).then((res) => {
-            if (res.data.data === false) {
+          this.$http.put('/editNote', this.ruleForm).then((res) => {
+            if (res.data.state === 1) {
               this.$message({
                 showClose: true,
                 message: res.data.message,
                 type: 'error'
               });
-            } else if (res.data.data === true) {
+            } else if (res.data.state === 0) {
               this.$message({
                 showClose: true,
                 message: res.data.message,

@@ -5,7 +5,7 @@
         <el-input v-model="ruleForm.title"></el-input>
       </el-form-item>
       <el-form-item label="内容" prop="content">
-        <mavon-editor v-model="ruleForm.content" style="height: 470px"></mavon-editor>
+        <mavon-editor v-model="ruleForm.content" style="height: 500px"></mavon-editor>
       </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="submitForm('ruleForm')">立即创建</el-button>

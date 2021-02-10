@@ -1,14 +1,14 @@
 <template>
   <div>
     <el-row>
-      <el-col :span="7" v-for="(course, index) in courses" :key="course.id" :offset="index > 0 ? 0.5 : 0">
-        <el-card :body-style="{ padding: '0px',width: '250px'}">
+      <el-col :span="8" v-for="(course, index) in courses" :key="course.id" :offset="index > 0 ? 0 : 0">
+        <el-card :body-style="{ padding: '0px',width: '280px'}">
           <img :src=course.course.imgUrl
                class="image">
-          <div style="padding: 16px;">
+          <div style="padding: 10px;">
             <span>{{ course.course.courseName }}</span>
             <div class="bottom clearfix">
-              <time class="time">{{ course.course.teacher.department +'  ' +course.course.teacher.name}}</time>
+              <time class="time">{{ course.course.teacher.department + '  ' + course.course.teacher.name }}</time>
               <br>
               <br>
               <el-button type="text" class="button">进入课程</el-button>
@@ -71,7 +71,7 @@ export default {
 
 .image {
   width: 100%;
-  height: 176px;
+  height: 136px;
   display: block;
 }
 
