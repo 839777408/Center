@@ -11,14 +11,12 @@
     </el-card>
     <el-menu
         :default-active="activeIndex"
-        router
-        class="el-menu-vertical-demo"
-    >
-      <el-menu-item index="/center/homePage">
+        class="el-menu-vertical-demo">
+      <el-menu-item index="1" @click="toHomePage">
         <i class="el-icon-s-home"/>
         <span slot="title">首页</span>
       </el-menu-item>
-      <el-menu-item index="2">
+      <el-menu-item index="2" @click="toCoursePage">
         <i class="el-icon-reading"/>
         <span slot="title">课程</span>
       </el-menu-item>
@@ -26,7 +24,7 @@
         <i class="el-icon-message-solid"/>
         <span slot="title">通知</span>
       </el-menu-item>
-      <el-menu-item index="/center/notesPage">
+      <el-menu-item index="4" @click="toNotesPage">
         <i class="el-icon-notebook-2"/>
         <span slot="title">笔记</span>
       </el-menu-item>
@@ -43,22 +41,39 @@ export default {
   name: "SideBar",
   data() {
     return {
-      activeIndex: "/center/homePage"
-    }
-  },
-  watch: {
-    $route () {
-      this.setCurrentRoute()
+      activeIndex: '1',
+      path: ''
     }
   },
   methods: {
-    setCurrentRoute () {
-      this.activeIndex = this.$route.path
+    setCurrentRoute() {
+      this.path = this.$route.path
+      if (this.path === '/center/homePage') {
+        this.activeIndex = '1'
+      } else if (this.path === '/center/course') {
+        this.activeIndex = '2'
+      } else if (this.path.includes('ote')) {
+        this.activeIndex = '4'
+      }
+    },
+    toHomePage() {
+      this.$router.push('/center/homePage')
+    },
+    toCoursePage() {
+      this.$router.push('/center/course')
+    },
+    toNotesPage() {
+      this.$router.push('/center/notesPage')
     },
   },
-  created () {
-    this.setCurrentRoute()
+  watch: {
+    $route() {
+      this.setCurrentRoute()
+    }
   },
+  created() {
+    this.setCurrentRoute()
+  }
 }
 </script>
 
@@ -71,7 +86,7 @@ export default {
 
 .i-info {
   font-size: 16px;
-  color: #97a8be;
+  color: #606266;
   line-height: 28px;
 }
 </style>

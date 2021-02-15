@@ -15,7 +15,7 @@ export default new Vuex.Store({
       state.name = info.name
       state.squad = info.squad
       state.no = info.no
-    }
+    },
   },
   actions: {},
   modules: {}

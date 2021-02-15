@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="flex: auto;padding: 20px;text-align: center">
     <el-row>
       <el-col :span="2">
         <el-button type="primary" @click="toAddNote">添加笔记</el-button>

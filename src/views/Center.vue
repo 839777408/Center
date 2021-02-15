@@ -36,6 +36,7 @@ export default {
   text-align: center;
   line-height: 60px;
 }
+
 .el-aside {
   display: block;
   position: absolute;
@@ -43,12 +44,14 @@ export default {
   top: 60px;
   bottom: 0;
 }
+
 .el-aside {
   background-color: white;
   color: #333;
   text-align: center;
   height: 560px;
 }
+
 .el-main {
   position: absolute;
   left: 200px;
@@ -57,12 +60,15 @@ export default {
   bottom: 0;
   overflow-y: scroll;
 }
+
 .el-main {
   background-color: #E9EEF3;
   color: #333;
-  text-align: center;
+  /*text-align: center;*/
   height: auto;
+  padding: 0;
 }
+
 body > .el-container {
   margin-bottom: 40px;
 }

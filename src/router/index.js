@@ -45,23 +45,30 @@ const routes = [
       },
       {
         path: 'addNote',
-        component: () => import("../views/mainViews/AddNote"),
+        component: () => import("../views/noteViews/AddNote"),
         meta: {
           title: "添加笔记",
         },
       },
       {
         path: 'notes/:noteId',
-        component: () => import("../views/mainViews/NoteDetail"),
+        component: () => import("../views/noteViews/NoteDetail"),
         meta: {
           title: "查看笔记",
         },
       },
       {
         path: 'editNote/:noteId',
-        component: () => import("../views/mainViews/EditNote"),
+        component: () => import("../views/noteViews/EditNote"),
         meta: {
           title: "修改笔记",
+        },
+      },
+      {
+        path: 'course/:courseId',
+        component: () => import("../views/mainViews/CoursePage"),
+        meta: {
+          title: "课程",
         },
       }
     ]

@@ -1,5 +1,5 @@
 <template>
-  <div style="flex: auto">
+  <div style="flex: auto;padding: 20px;text-align: center">
     <el-row>
       <el-col :span="18">
         <el-tabs v-model="activeTab">
@@ -17,15 +17,17 @@
       <el-col :span="6">
         <el-card class="box-card">
           <div slot="header" class="clearfix">
-            <i class="el-icon-s-data"></i>
+              <svg class="icon" aria-hidden="true" style="font-size: 20px;float: left">
+              <use xlink:href="#icon-paihangbang"></use>
+            </svg>
             <span>点击量排行</span>
           </div>
           <div v-for="(course, index) in coursesRanking" :key="index" style="font-size: 12px">
             <el-row>
               <el-col :span="4">
-                <div style="width: 20px;height: 20px;background-color: #B3C0D1">{{ index + 1 }}</div>
+                <div style="width: 20px;height: 20px;background-color: #DCDFE6">{{ index + 1 }}</div>
               </el-col>
-              <el-col :span="16"><a href="/" style="text-decoration:none;color: #333333">{{ course.courseName }}</a>
+              <el-col :span="16"><a :href="'/center/course/'+course.id" style="text-decoration:none;color: #333333">{{ course.courseName }}</a>
               </el-col>
               <el-col :span="4">{{ course.activity }}</el-col>
             </el-row>
@@ -38,7 +40,7 @@
 </template>
 
 <script>
-import CourseCard from "@/components/CourseCard";
+import CourseCard from "@/components/courseComponents/CourseCard";
 
 export default {
   name: "HomePage",

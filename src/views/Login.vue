@@ -73,7 +73,7 @@ export default {
               });
               this.$router.replace('/center')
               this.$store.commit('setInfo',res.data.data)
-              window.sessionStorage.setItem('userInfo',JSON.stringify(res.data.data))
+              window.sessionStorage.setItem('store',JSON.stringify(res.data.data))
             }
           })
         } else {
