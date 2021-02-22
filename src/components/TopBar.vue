@@ -28,10 +28,16 @@ export default {
   data() {
     return {
       squareUrl: 'https://www.runoob.com/wp-content/uploads/2017/01/vue.png',
+      logoutInfo: {
+        name: '',
+        squad: '',
+        no: ''
+      }
     };
   },
   methods: {
     logout() {
+      sessionStorage.clear()
       this.$router.replace('/login')
     }
   }

@@ -71,7 +71,11 @@ export default {
                 message: res.data.message,
                 type: 'success'
               });
-              this.$router.replace('/center')
+              if (this.ruleForm.type === 'student'){
+                this.$router.replace('/center')
+              }else if (this.ruleForm.type === 'teacher'){
+                this.$router.replace('/teacherCenter')
+              }
               this.$store.commit('setInfo',res.data.data)
               window.sessionStorage.setItem('store',JSON.stringify(res.data.data))
             }

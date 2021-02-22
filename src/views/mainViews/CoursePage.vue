@@ -8,6 +8,8 @@
       <el-tab-pane label="学习资料">
         <course-means></course-means>
       </el-tab-pane>
+      <el-tab-pane label="通知">通知</el-tab-pane>
+      <el-tab-pane label="作业">作业</el-tab-pane>
     </el-tabs>
   </div>
 </template>

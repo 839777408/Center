@@ -50,7 +50,7 @@ export default {
       this.path = this.$route.path
       if (this.path === '/center/homePage') {
         this.activeIndex = '1'
-      } else if (this.path === '/center/course') {
+      } else if (this.path === '/center/myCourses') {
         this.activeIndex = '2'
       } else if (this.path.includes('ote')) {
         this.activeIndex = '4'
@@ -60,7 +60,7 @@ export default {
       this.$router.push('/center/homePage')
     },
     toCoursePage() {
-      this.$router.push('/center/course')
+      this.$router.push('/center/myCourses')
     },
     toNotesPage() {
       this.$router.push('/center/notesPage')

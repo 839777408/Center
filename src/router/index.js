@@ -37,6 +37,13 @@ const routes = [
         },
       },
       {
+        path: 'myCourses',
+        component: () => import("../components/courseComponents/StuCourses"),
+        meta: {
+          title: "我的课程",
+        },
+      },
+      {
         path: 'notesPage',
         component: () => import("../views/mainViews/NotesPage"),
         meta: {
@@ -71,6 +78,47 @@ const routes = [
           title: "课程",
         },
       }
+    ]
+  },
+  {
+    path: '/teacherCenter',
+    component: () => import('../views/TeacherCenter.vue'),
+    meta: {
+      title: "教师管理页面",
+    },
+    children: [
+      {
+        path: '',
+        redirect: 'homePage'
+      },
+      {
+        path: 'homePage',
+        component: () => import("../views/mainViews/HomePage"),
+        meta: {
+          title: "首页",
+        },
+      },
+      {
+        path: 'myCourses',
+        component: () => import("../components/courseComponents/TeaCourses"),
+        meta: {
+          title: "我的课程",
+        },
+      },
+      {
+        path: 'addCourse',
+        component: () => import("../components/courseComponents/AddCourse"),
+        meta: {
+          title: "添加课程",
+        },
+      },
+      {
+        path: 'courseManage',
+        component: () => import("../components/courseComponents/CourseManage"),
+        meta: {
+          title: "课程管理",
+        },
+      },
     ]
   }
 ]

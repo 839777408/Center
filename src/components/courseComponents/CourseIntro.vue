@@ -18,8 +18,7 @@
             <use xlink:href="#icon-gonggao1"></use>
           </svg>
           公告<br>
-          <p style="font-size: 16px;padding-top: 1px"> 各位同学在学习过程中针对课程学习内容的疑问均可在此帖下发布，欢迎其他同学跟帖讨论，我也会定时回复。
-            我也会定时回复。定时</p>
+          <p style="font-size: 16px;padding-top: 1px"></p>
         </el-card>
       </el-col>
     </el-row>
@@ -44,5 +43,7 @@ export default {
 </script>
 
 <style scoped>
-
+.box-card {
+  height: 165px;
+}
 </style>
