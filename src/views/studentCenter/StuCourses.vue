@@ -1,17 +1,17 @@
 <template>
-  <div style="padding-top: 20px">
+  <div style="padding-top: 20px; padding-left: 20px">
     <el-row>
       <el-col :span="8" v-for="(course, index) in courses" :key="course.id">
         <el-card :body-style="{ padding: '0px',width: '274px'}" style="width: 274px">
-          <img :src=course.imgUrl
+          <img :src=course.course.imgUrl
                class="image">
           <div style="padding: 10px;">
-            <span>{{ course.courseName }}</span>
+            <span>{{ course.course.courseName }}</span>
             <div class="bottom clearfix">
-              <time class="time">教学对象：{{ course.createTime }}</time>
+              <time class="time">{{ course.course.teacher.department + '  ' + course.course.teacher.name }}</time>
               <br>
               <br>
-              <el-button type="text" class="button" @click="toCourse(course.id)">进入课程</el-button>
+              <el-button type="text" class="button" @click="toCourse(course.course.id)">进入课程</el-button>
             </div>
           </div>
         </el-card>
@@ -23,14 +23,19 @@
 
 <script>
 export default {
-  name: "MyCourses",
+  name: "StuCourses",
   data() {
     return {
       courses: []
     };
   },
+  methods: {
+    toCourse(id) {
+      this.$router.push("/stuCenter/course/" + id)
+    }
+  },
   created() {
-    this.$http('/teacher/getCourses' + '?no=' + this.$store.state.no).then((res) => {
+    this.$http('/student/getCourses' + '?no=' + this.$store.state.no).then((res) => {
           this.courses = res.data.data
         }
     )

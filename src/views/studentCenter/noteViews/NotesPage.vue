@@ -70,10 +70,10 @@ export default {
   },
   methods: {
     handleBrowse(index, row) {
-      this.$router.push('/center/notes/' + row.id)
+      this.$router.push('/stuCenter/notes/' + row.id)
     },
     handleEdit(index, row) {
-      this.$router.push('/center/editNote/' + row.id)
+      this.$router.push('/stuCenter/editNote/' + row.id)
     },
     handleDelete(index, row) {
       this.$http.delete('/delNote/' + row.id
@@ -102,7 +102,7 @@ export default {
       )
     },
     toAddNote() {
-      this.$router.push('/center/addNote')
+      this.$router.push('/stuCenter/addNote')
     },
   },
   created() {

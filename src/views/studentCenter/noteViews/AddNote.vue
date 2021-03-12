@@ -8,8 +8,8 @@
         <mavon-editor v-model="ruleForm.content" style="height: 500px"></mavon-editor>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" @click="submitForm('ruleForm')">立即修改</el-button>
-        <el-button @click="back">返回</el-button>
+        <el-button type="primary" @click="submitForm('ruleForm')">立即创建</el-button>
+        <el-button @click="resetForm('ruleForm')">重置</el-button>
       </el-form-item>
     </el-form>
   </div>
@@ -17,13 +17,13 @@
 
 <script>
 export default {
-  name: "EditBlog",
+  name: "AddNote",
   data() {
     return {
       ruleForm: {
-        id: this.$route.params.noteId,
         title: '',
-        content: ''
+        content: '',
+        no: this.$store.state.no
       },
       rules: {
         title: [
@@ -40,7 +40,7 @@ export default {
     submitForm(formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          this.$http.put('/editNote', this.ruleForm).then((res) => {
+          this.$http.post('/addNote', this.ruleForm).then((res) => {
             if (res.data.state === 1) {
               this.$message({
                 showClose: true,
@@ -53,6 +53,7 @@ export default {
                 message: res.data.message,
                 type: 'success'
               });
+              this.$router.replace("/stuCenter/notesPage")
             }
           })
         } else {
@@ -61,16 +62,9 @@ export default {
         }
       });
     },
-    back() {
-      this.$router.push('/center/notesPage')
+    resetForm(formName) {
+      this.$refs[formName].resetFields();
     }
-  },
-  created() {
-    this.$http.get('/getNote/' + this.$route.params.noteId
-    ).then(res => {
-      this.ruleForm.title = res.data.data.title
-      this.ruleForm.content = res.data.data.content
-    })
   }
 }
 </script>

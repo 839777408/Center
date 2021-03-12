@@ -17,7 +17,7 @@
       <el-col :span="6">
         <el-card class="box-card">
           <div slot="header" class="clearfix">
-              <svg class="icon" aria-hidden="true" style="font-size: 20px;float: left">
+            <svg class="icon" aria-hidden="true" style="font-size: 20px;float: left">
               <use xlink:href="#icon-paihangbang"></use>
             </svg>
             <span>点击量排行</span>
@@ -27,7 +27,9 @@
               <el-col :span="4">
                 <div style="width: 20px;height: 20px;background-color: #DCDFE6">{{ index + 1 }}</div>
               </el-col>
-              <el-col :span="16"><a :href="'/center/course/'+course.id" style="text-decoration:none;color: #333333">{{ course.courseName }}</a>
+              <el-col :span="16"><a :href="routePath+course.id" style="text-decoration:none;color: #333333">{{
+                  course.courseName
+                }}</a>
               </el-col>
               <el-col :span="4">{{ course.activity }}</el-col>
             </el-row>
@@ -52,6 +54,15 @@ export default {
   },
   components: {
     CourseCard,
+  },
+  computed: {
+    routePath() {
+      if (this.$store.state.type === 'student') {
+        return '/stuCenter/course/'
+      } else if (this.$store.state.type === 'teacher') {
+        return '/teaCenter/course/'
+      }
+    }
   },
   created() {
     const _this = this;

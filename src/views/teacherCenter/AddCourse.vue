@@ -62,7 +62,7 @@ export default {
           {required: true, message: '请选择班级', trigger: 'change'}
         ],
         notice: [
-          {min: 3, max: 30, message: '长度在 3 到 30 个字符', trigger: 'blur'}
+          {min: 3, max: 60, message: '长度在 3 到 60 个字符', trigger: 'blur'}
         ]
       },
     };
@@ -96,7 +96,7 @@ export default {
                 message: res.data.message,
                 type: 'success'
               });
-              this.$router.replace("/teacherCenter/courseManage")
+              this.$router.push("/teaCenter/courseManage")
             }
           })
         } else {

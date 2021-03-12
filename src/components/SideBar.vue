@@ -48,22 +48,22 @@ export default {
   methods: {
     setCurrentRoute() {
       this.path = this.$route.path
-      if (this.path === '/center/homePage') {
+      if (this.path === '/stuCenter/homePage') {
         this.activeIndex = '1'
-      } else if (this.path === '/center/myCourses') {
+      } else if (this.path === '/stuCenter/myCourses') {
         this.activeIndex = '2'
       } else if (this.path.includes('ote')) {
         this.activeIndex = '4'
       }
     },
     toHomePage() {
-      this.$router.push('/center/homePage')
+      this.$router.push('/stuCenter/homePage')
     },
     toCoursePage() {
-      this.$router.push('/center/myCourses')
+      this.$router.push('/stuCenter/myCourses')
     },
     toNotesPage() {
-      this.$router.push('/center/notesPage')
+      this.$router.push('/stuCenter/notesPage')
     },
   },
   watch: {

@@ -37,7 +37,11 @@ export default {
   },
   methods: {
     toCourse(id){
-      this.$router.push("/center/course/"+id)
+      if (this.$store.state.type === 'student'){
+        this.$router.push("/stuCenter/course/"+id)
+      }else if (this.$store.state.type === 'teacher'){
+        this.$router.push("/teaCenter/course/"+id)
+      }
     }
   },
   created() {

@@ -7,28 +7,24 @@
       <el-table-column
           prop="fileName"
           label="文件名"
-          width="476">
-      </el-table-column>
-      <el-table-column
-          prop="author"
-          label="上传者"
-          width="180">
+          width="600">
       </el-table-column>
       <el-table-column
           prop="size"
-          label="大小"
+          label="大小(MB)"
           width="180">
       </el-table-column>
       <el-table-column
           prop="uploadTime"
           label="创建日期"
-          width="180">
+          width="220">
       </el-table-column>
       <el-table-column label="操作">
         <template slot-scope="scope">
           <el-button
               size="mini"
               type="danger"
+              style="margin-left: 15px"
               @click="downLoad(scope.$index, scope.row)">下载
           </el-button>
         </template>
@@ -42,23 +38,19 @@ export default {
   name: "CourseMeans",
   data() {
     return {
-      tableData: [
-        {
-          fileName: '1',
-          author: '邹莹',
-          size: '1024G',
-          uploadTime: '2021-2-14 15:46:25'
-        }
-      ]
+      tableData: [],
+      downloadUrl: 'http://localhost:8181/download/' + this.$route.params.courseId + '/',
     }
   },
   methods: {
     downLoad(index, row) {
-      window.location.href = "http://localhost:8181/download/2/web安全.md"
-    }
+      window.location.href = this.downloadUrl + row.fileName
+    },
   },
   created() {
-
+    this.$http('/getMainsList/' + this.$route.params.courseId).then((res) => {
+      this.tableData = res.data.data
+    })
   }
 }
 </script>

@@ -7,7 +7,9 @@
       <el-col :span="2">
         <div style="font-size: 22px"><strong>课程中心</strong></div>
       </el-col>
-      <el-col :span="20"></el-col>
+      <el-col :span="20">
+        <slot name="teaButton"></slot>
+      </el-col>
       <el-col :span="2">
         <el-dropdown>
           <el-button split-button type="primary">

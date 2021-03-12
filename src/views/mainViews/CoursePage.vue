@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="tabTop">
     <el-tabs type="border-card">
       <el-tab-pane label="课程简介">
         <course-intro></course-intro>
@@ -33,5 +33,7 @@ export default {
 </script>
 
 <style scoped>
-
+.tabTop >>> .el-tabs__nav-scroll {
+  background-color: lavender;
+}
 </style>

@@ -2,11 +2,14 @@
   <div>
     <el-container>
       <el-header>
-        <TeacherTopBar></TeacherTopBar>
+        <TopBar></TopBar>
       </el-header>
       <el-container>
+        <el-aside width="200px">
+          <SideBar></SideBar>
+        </el-aside>
         <el-main>
-          <router-view></router-view>
+            <router-view></router-view>
         </el-main>
       </el-container>
     </el-container>
@@ -15,11 +18,11 @@
 
 <script>
 import SideBar from "@/components/SideBar";
-import TeacherTopBar from "@/components/TeacherTopBar";
+import TopBar from "@/components/TopBar";
 
 export default {
-  name: "TeacherCenter",
-  components: {SideBar, TeacherTopBar},
+  name: "Center",
+  components: {SideBar, TopBar},
 }
 </script>
 
@@ -34,13 +37,28 @@ export default {
   line-height: 60px;
 }
 
-.el-main {
+.el-aside {
+  display: block;
   position: absolute;
-  left: 100px;
-  right: 100px;
+  left: 0;
   top: 60px;
   bottom: 0;
-  /*overflow-y: scroll;*/
+}
+
+.el-aside {
+  background-color: white;
+  color: #333;
+  text-align: center;
+  height: 560px;
+}
+
+.el-main {
+  position: absolute;
+  left: 200px;
+  right: 0;
+  top: 60px;
+  bottom: 0;
+  overflow-y: scroll;
 }
 
 .el-main {

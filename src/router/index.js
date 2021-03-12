@@ -16,14 +16,14 @@ const routes = [
   },
   {
     path: '/login',
-    component: () => import('../views/Login.vue'),
+    component: () => import('../views/mainViews/Login.vue'),
     meta: {
       title: "登录",
     },
   },
   {
-    path: '/center',
-    component: () => import('../views/Center.vue'),
+    path: '/stuCenter',
+    component: () => import('../views/mainViews/StudentCenter.vue'),
     children: [
       {
         path: '',
@@ -38,37 +38,9 @@ const routes = [
       },
       {
         path: 'myCourses',
-        component: () => import("../components/courseComponents/StuCourses"),
+        component: () => import("../views/studentCenter/StuCourses"),
         meta: {
           title: "我的课程",
-        },
-      },
-      {
-        path: 'notesPage',
-        component: () => import("../views/mainViews/NotesPage"),
-        meta: {
-          title: "笔记",
-        },
-      },
-      {
-        path: 'addNote',
-        component: () => import("../views/noteViews/AddNote"),
-        meta: {
-          title: "添加笔记",
-        },
-      },
-      {
-        path: 'notes/:noteId',
-        component: () => import("../views/noteViews/NoteDetail"),
-        meta: {
-          title: "查看笔记",
-        },
-      },
-      {
-        path: 'editNote/:noteId',
-        component: () => import("../views/noteViews/EditNote"),
-        meta: {
-          title: "修改笔记",
         },
       },
       {
@@ -77,12 +49,40 @@ const routes = [
         meta: {
           title: "课程",
         },
-      }
+      },
+      {
+        path: 'notesPage',
+        component: () => import("../views/studentCenter/noteViews/NotesPage"),
+        meta: {
+          title: "笔记",
+        },
+      },
+      {
+        path: 'addNote',
+        component: () => import("../views/studentCenter/noteViews/AddNote"),
+        meta: {
+          title: "添加笔记",
+        },
+      },
+      {
+        path: 'notes/:noteId',
+        component: () => import("../views/studentCenter/noteViews/NoteDetail"),
+        meta: {
+          title: "查看笔记",
+        },
+      },
+      {
+        path: 'editNote/:noteId',
+        component: () => import("../views/studentCenter/noteViews/EditNote"),
+        meta: {
+          title: "修改笔记",
+        },
+      },
     ]
   },
   {
-    path: '/teacherCenter',
-    component: () => import('../views/TeacherCenter.vue'),
+    path: '/teaCenter',
+    component: () => import('../views/mainViews/TeacherCenter.vue'),
     meta: {
       title: "教师管理页面",
     },
@@ -99,28 +99,35 @@ const routes = [
         },
       },
       {
-        path: 'myCourses',
-        component: () => import("../components/courseComponents/TeaCourses"),
+        path: 'course/:courseId',
+        component: () => import("../views/mainViews/CoursePage"),
         meta: {
-          title: "我的课程",
+          title: "课程",
         },
       },
       {
         path: 'addCourse',
-        component: () => import("../components/courseComponents/AddCourse"),
+        component: () => import("../views/teacherCenter/AddCourse"),
         meta: {
           title: "添加课程",
         },
       },
       {
         path: 'courseManage',
-        component: () => import("../components/courseComponents/CourseManage"),
+        component: () => import("../views/teacherCenter/CourseManage"),
         meta: {
           title: "课程管理",
         },
       },
+      {
+        path: 'editCourse/:courseId',
+        component: () => import("../views/teacherCenter/EditCourse"),
+        meta: {
+          title: "课程编辑",
+        },
+      },
     ]
-  }
+  },
 ]
 
 const router = new VueRouter({
