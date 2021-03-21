@@ -5,21 +5,19 @@
         <EditCourseIntro></EditCourseIntro>
       </el-collapse-item>
       <el-collapse-item title="教学目录" name="2" class="col-head">
+        <EditPeriod></EditPeriod>
       </el-collapse-item>
       <el-collapse-item title="学习资料" name="3" class="col-head">
         <EditCourseMeans></EditCourseMeans>
-      </el-collapse-item>
-      <el-collapse-item title="通知" name="4" class="col-head">
-      </el-collapse-item>
-      <el-collapse-item title="作业" name="5" class="col-head">
       </el-collapse-item>
     </el-collapse>
   </div>
 </template>
 
 <script>
-import EditCourseIntro from "@/components/courseComponents/EditCourseIntro";
-import EditCourseMeans from "@/components/courseComponents/EditCourseMeans";
+import EditCourseIntro from "@/views/teacherCenter/EditViews/EditCourseIntro";
+import EditCourseMeans from "@/views/teacherCenter/EditViews/EditCourseMeans";
+import EditPeriod from "@/views/teacherCenter/EditViews/EditPeriod";
 
 export default {
   name: "AddCourse",
@@ -34,7 +32,7 @@ export default {
     }
   },
   components: {
-    EditCourseIntro, EditCourseMeans
+    EditCourseIntro, EditCourseMeans, EditPeriod
   }
 }
 </script>
@@ -46,6 +44,7 @@ export default {
   color: white;
   padding-left: 14px;
 }
+
 .col-head >>> .el-collapse-item__content {
   padding-bottom: 0;
   font-size: 13px;

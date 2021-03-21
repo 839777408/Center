@@ -11,7 +11,6 @@
             <el-select v-model="ruleForm.type">
               <el-option label="学生" value="student"></el-option>
               <el-option label="老师" value="teacher"></el-option>
-              <el-option label="管理员" value="admin"></el-option>
             </el-select>
           </el-form-item>
           <el-form-item label="用户名" prop="username">

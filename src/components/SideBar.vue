@@ -20,17 +20,9 @@
         <i class="el-icon-reading"/>
         <span slot="title">课程</span>
       </el-menu-item>
-      <el-menu-item index="3">
-        <i class="el-icon-message-solid"/>
-        <span slot="title">通知</span>
-      </el-menu-item>
-      <el-menu-item index="4" @click="toNotesPage">
+      <el-menu-item index="3" @click="toNotesPage">
         <i class="el-icon-notebook-2"/>
         <span slot="title">笔记</span>
-      </el-menu-item>
-      <el-menu-item index="5">
-        <i class="el-icon-chat-dot-square"/>
-        <span slot="title">讨论</span>
       </el-menu-item>
     </el-menu>
   </div>
@@ -53,7 +45,7 @@ export default {
       } else if (this.path === '/stuCenter/myCourses') {
         this.activeIndex = '2'
       } else if (this.path.includes('ote')) {
-        this.activeIndex = '4'
+        this.activeIndex = '3'
       }
     },
     toHomePage() {

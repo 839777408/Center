@@ -4,12 +4,12 @@
       <el-tab-pane label="课程简介">
         <course-intro></course-intro>
       </el-tab-pane>
-      <el-tab-pane label="教学目录">教学目录</el-tab-pane>
+      <el-tab-pane label="教学目录">
+        <course-catalog></course-catalog>
+      </el-tab-pane>
       <el-tab-pane label="学习资料">
         <course-means></course-means>
       </el-tab-pane>
-      <el-tab-pane label="通知">通知</el-tab-pane>
-      <el-tab-pane label="作业">作业</el-tab-pane>
     </el-tabs>
   </div>
 </template>
@@ -17,6 +17,7 @@
 <script>
 import CourseIntro from "@/components/courseComponents/CourseIntro";
 import CourseMeans from "@/components/courseComponents/CourseMeans";
+import CourseCatalog from "@/components/courseComponents/CourseCatalog";
 
 export default {
   name: "CourseDetail",
@@ -27,7 +28,8 @@ export default {
   },
   components: {
     CourseIntro,
-    CourseMeans
+    CourseMeans,
+    CourseCatalog
   }
 }
 </script>
