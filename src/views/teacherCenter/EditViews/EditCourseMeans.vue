@@ -75,7 +75,7 @@ export default {
       var formData = new FormData();
       formData.append("file", param.file);
       formData.append("courseId", this.$route.params.courseId);
-      this.$http.post('/teacher/upload', formData, ).then((res) => {
+      this.$http.post('/teacher/uploadFile', formData).then((res) => {
         if (res.data.state === 1) {
           this.$message({
             showClose: true,

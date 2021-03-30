@@ -10,6 +10,9 @@
       <el-tab-pane label="学习资料">
         <course-means></course-means>
       </el-tab-pane>
+      <el-tab-pane label="学习视频">
+        <course-video></course-video>
+      </el-tab-pane>
     </el-tabs>
   </div>
 </template>
@@ -18,9 +21,10 @@
 import CourseIntro from "@/components/courseComponents/CourseIntro";
 import CourseMeans from "@/components/courseComponents/CourseMeans";
 import CourseCatalog from "@/components/courseComponents/CourseCatalog";
+import CourseVideo from "@/components/courseComponents/CourseVideo";
 
 export default {
-  name: "CourseDetail",
+  name: "CoursePage",
   data() {
     return {
       imgUrl: 'https://cdn.jsdelivr.net/gh/839777408/tupian/img/4%E5%88%86%E7%B1%BB.jpg'
@@ -29,7 +33,8 @@ export default {
   components: {
     CourseIntro,
     CourseMeans,
-    CourseCatalog
+    CourseCatalog,
+    CourseVideo,
   }
 }
 </script>

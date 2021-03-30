@@ -1,6 +1,6 @@
 <template>
   <div style="padding-top: 20px">
-    <el-collapse v-model="activeNames" @change="handleChange">
+    <el-collapse v-model="activeNames">
       <el-collapse-item title="课程简介" name="1" class="col-head">
         <EditCourseIntro></EditCourseIntro>
       </el-collapse-item>
@@ -10,6 +10,9 @@
       <el-collapse-item title="学习资料" name="3" class="col-head">
         <EditCourseMeans></EditCourseMeans>
       </el-collapse-item>
+      <el-collapse-item title="学习视频" name="4" class="col-head">
+        <EditVideo></EditVideo>
+      </el-collapse-item>
     </el-collapse>
   </div>
 </template>
@@ -18,6 +21,7 @@
 import EditCourseIntro from "@/views/teacherCenter/EditViews/EditCourseIntro";
 import EditCourseMeans from "@/views/teacherCenter/EditViews/EditCourseMeans";
 import EditPeriod from "@/views/teacherCenter/EditViews/EditPeriod";
+import EditVideo from "@/views/teacherCenter/EditViews/EditVideo";
 
 export default {
   name: "AddCourse",
@@ -26,13 +30,8 @@ export default {
       activeNames: [],
     };
   },
-  methods: {
-    handleChange(val) {
-      console.log(val);
-    }
-  },
   components: {
-    EditCourseIntro, EditCourseMeans, EditPeriod
+    EditCourseIntro, EditCourseMeans, EditPeriod,EditVideo
   }
 }
 </script>

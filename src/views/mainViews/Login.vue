@@ -56,7 +56,7 @@ export default {
     submitForm(formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          this.$http.post('/login',
+          this.$http.post('/' + this.ruleForm.type + '/login',
               this.ruleForm).then((res) => {
             if (res.data.state === 1) {
               this.$message({
